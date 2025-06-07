@@ -54,8 +54,10 @@ cd AI_Trainer
 ### 2. Install Dependencies
 
 ```bash
-# In root directory:
+# Install server dependencies:
+cd server
 npm install
+cd ..
 
 # Install client dependencies:
 cd client
