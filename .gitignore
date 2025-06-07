@@ -23,6 +23,7 @@ temp/
 
 # --- Environment variables ---
 server/.env
+client/.env
 
 # --- Firebase config ---
 client/src/firebase.ts

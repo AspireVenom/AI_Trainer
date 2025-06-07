@@ -39,7 +39,7 @@ const Dashboard = () => {
       }
     };
     fetchXP();
-  }, []);
+  }, [API_BASE]);
 
   const handleCompleteExercise = async (day: string, index: number) => {
     const updated = [...routine];
@@ -175,7 +175,9 @@ Do not ask for additional information. Format the output using "Day 1:", "Day 2:
 
       {!showForm && (
         <>
-          <LevelProgress completedCount={completedCount} level={level} />
+          <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md px-4">
+            <LevelProgress completedCount={completedCount} level={level} />
+          </div>
           <div className="routine-grid">
             {routine.map((day, dayIndex) => {
               const originalExercises =

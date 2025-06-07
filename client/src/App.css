@@ -301,3 +301,18 @@ form button:hover {
 .level-up {
   animation: level-up-flash 1s ease-in-out;
 }
+
+@keyframes pop-scale {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.1);
+  }
+  60% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
