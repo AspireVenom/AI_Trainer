@@ -1,0 +1,46 @@
+# --- Node modules ---
+node_modules/
+
+# --- Logs ---
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# --- Runtime ---
+dist/
+build/
+.cache/
+tmp/
+temp/
+
+# --- Vite ---
+.vite/
+
+# --- Express build (if using TypeScript) ---
+*.tsbuildinfo
+
+# --- Environment variables ---
+server/.env
+
+# --- Firebase config ---
+client/src/firebase.ts
+
+# --- Coverage/Test ---
+coverage/
+.nyc_output/
+test-output/
+
+# --- OS generated files ---
+.DS_Store
+Thumbs.db
+
+# --- Editor/IDE config ---
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+

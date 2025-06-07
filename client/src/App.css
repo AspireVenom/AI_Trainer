@@ -1,0 +1,303 @@
+/* ===== Global Styles ===== */
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: #f3f4f6;
+  color: #1f2937;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1d4ed8;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* ===== Form Container ===== */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #ffffffcc;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+  border: 1px solid #e5e7eb;
+}
+
+form input,
+form select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+}
+
+form input:focus,
+form select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3);
+}
+
+form button {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+}
+
+/* ===== Routine Grid (Calendar Style) ===== */
+.routine-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 days like a calendar */
+  gap: 1rem;
+  padding: 2rem;
+  background-color: #f9fafb;
+  border-radius: 1rem;
+  box-shadow: inset 0 0 0 1px #e5e7eb;
+  margin-top: 2rem;
+  overflow-x: auto;
+}
+@media (max-width: 768px) {
+  .routine-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+.day-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.day-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+.day-card.rest {
+  background: linear-gradient(to bottom right, #fef9c3, #fde68a);
+  border-color: #facc15;
+}
+.day-title {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1d4ed8;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #e0e7ff;
+  padding-bottom: 0.5rem;
+}
+
+.exercise {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.exercise:hover {
+  background: #e0f2fe;
+  border-color: #38bdf8;
+}
+
+.exercise-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #111827;
+}
+
+.exercise-details {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+.rest-message {
+  font-style: italic;
+  color: #4b5563;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* ===== Exercise Card Component ===== */
+.exercise-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(6px);
+  border-radius: 1rem;
+  border: 1px solid #e5e7eb;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.exercise-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.exercise-card h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 0.5rem;
+}
+
+.exercise-card p {
+  font-size: 1rem;
+  color: #4b5563;
+}
+
+.exercise-card .actions {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.exercise-card.active .actions {
+  display: flex;
+}
+
+.exercise-card button {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.exercise-card button:first-of-type {
+  background-color: #10b981;
+  color: white;
+}
+
+.exercise-card button:first-of-type:hover {
+  background-color: #059669;
+}
+
+.exercise-card button:last-of-type {
+  background-color: #ef4444;
+  color: white;
+}
+
+.exercise-card button:last-of-type:hover {
+  background-color: #dc2626;
+}
+
+.exercise-card input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  background: #fff;
+}
+
+/* ===== Login Page Styles ===== */
+.login-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #dbeafe, #e0f2fe);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.login-box {
+  background: white;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 3rem 2rem;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.login-box h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1e40af;
+  margin-bottom: 1rem;
+}
+
+.login-box p {
+  color: #4b5563;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.login-box button {
+  background-color: #3b82f6;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-box button:hover {
+  background-color: #2563eb;
+}
+
+.login-box .note {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+/* -- LEVEL UP SECTION */
+@keyframes level-up-flash {
+  0% {
+    box-shadow: 0 0 0px 0px rgba(34, 197, 94, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 20px 10px rgba(34, 197, 94, 0.5);
+    transform: scale(1.05);
+  }
+  100% {
+    box-shadow: 0 0 0px 0px rgba(34, 197, 94, 0.5);
+    transform: scale(1);
+  }
+}
+
+.level-up {
+  animation: level-up-flash 1s ease-in-out;
+}
