@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { OpenAI } from "openai";
+import { getXP, incrementXP } from "./xp.js";
 
 dotenv.config();
 const app = express();
@@ -10,8 +11,6 @@ app.use(express.json());
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-// ==== In-Memory XP Store (for now) ====
-let userXP = 0;
 
 // === Generate Workout Plan ===
 app.post("/api/ask", async (req, res) => {
@@ -43,18 +42,18 @@ app.post("/api/ask", async (req, res) => {
 
 // === Get XP ===
 app.get("/api/user-xp", (req, res) => {
-  res.json({ xp: userXP });
+  res.json({ xp: getXP() });
 });
 
 // === Increment XP ===
 app.post("/api/increment-xp", (req, res) => {
   const { amount } = req.body;
-  if (typeof amount !== "number" || amount <= 0) {
-    return res.status(400).json({ error: "Invalid XP amount" });
+  try {
+    const xp = incrementXP(amount);
+    res.json({ xp });
+  } catch {
+    res.status(400).json({ error: "Invalid XP amount" });
   }
-
-  userXP += amount;
-  res.json({ xp: userXP });
 });
 
 const PORT = process.env.PORT || 5050;

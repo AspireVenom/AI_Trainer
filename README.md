@@ -95,6 +95,15 @@ npm run dev
 
 Visit: [http://localhost:5173](http://localhost:5173)
 
+### 5. Run Tests
+
+Server unit tests use Node's built-in runner:
+
+```bash
+cd server
+npm test
+```
+
 ---
 
 ## 🧪 API Routes
