@@ -76,8 +76,8 @@ Also ensure you have a valid `firebase.ts` config in `client/src/`, but **do not
 
 ```bash
 # Terminal 1: Start the server
-cd server
-node index.js
+cd server/
+npm start
 
 # Terminal 2: Start the client
 cd client
