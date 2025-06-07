@@ -48,7 +48,7 @@ Welcome to the Student Fitness AI Chat App — an interactive fitness dashboard 
 
 ```bash
 git clone https://github.com/AspireVenom/AI_Trainer
-cd fitness-ai-app
+cd AI_Trainer
 ```
 
 ### 2. Install Dependencies
