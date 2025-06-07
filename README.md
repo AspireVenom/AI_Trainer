@@ -70,6 +70,13 @@ Create a `.env` file in `server/`:
 OPENAI_API_KEY=your_openai_key_here
 ```
 
+Create a `.env` file in `client/` (or copy `client/.env.example`) and set the API base URL if needed:
+
+```env
+# URL where the Express server is running
+VITE_API_URL=http://localhost:5050
+```
+
 Also ensure you have a valid `firebase.ts` config in `client/src/`, but **do not commit it**.
 
 ### 4. Run the App

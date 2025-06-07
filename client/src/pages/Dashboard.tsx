@@ -15,6 +15,7 @@ interface DayPlan {
 }
 
 const Dashboard = () => {
+  const API_BASE = import.meta.env.VITE_API_URL || "";
   const [input, setInput] = useState("");
   const [goals, setGoals] = useState("");
   const [weight, setWeight] = useState("");
@@ -29,7 +30,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchXP = async () => {
       try {
-        const res = await fetch("http://localhost:5050/api/user-xp");
+        const res = await fetch(`${API_BASE}/api/user-xp`);
         const data = await res.json();
         setCompletedCount(data.xp);
         setLevel(Math.floor(data.xp / 10) + 1);
@@ -48,7 +49,7 @@ const Dashboard = () => {
       setRoutine(updated);
 
       try {
-        const res = await fetch("http://localhost:5050/api/increment-xp", {
+        const res = await fetch(`${API_BASE}/api/increment-xp`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ amount: 1 }),
@@ -114,7 +115,7 @@ Do not ask for additional information. Format the output using "Day 1:", "Day 2:
 "1. Exercise Name - Description of sets, reps, or duration."`;
 
     try {
-      const res = await fetch("http://localhost:5050/api/ask", {
+      const res = await fetch(`${API_BASE}/api/ask`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: fullPrompt }),
